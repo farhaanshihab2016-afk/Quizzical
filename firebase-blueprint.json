@@ -1,0 +1,31 @@
+{
+  "entities": {
+    "leaderboard": {
+      "title": "Leaderboard Entry",
+      "description": "Global high score records for Quizzical trivia game show",
+      "type": "object",
+      "properties": {
+        "heroName": { "type": "string" },
+        "score": { "type": "number" },
+        "hostName": { "type": "string" },
+        "category": { "type": "string" },
+        "correct": { "type": "number" },
+        "rounds": { "type": "number" },
+        "date": { "type": "string" }
+      },
+      "required": ["heroName", "score"]
+    },
+    "profiles": {
+      "title": "Player Profile",
+      "description": "Contestant player stats and highest scores",
+      "type": "object",
+      "properties": {
+        "heroName": { "type": "string" },
+        "highScore": { "type": "number" },
+        "totalGames": { "type": "number" },
+        "bestStreak": { "type": "number" }
+      },
+      "required": ["heroName", "highScore"]
+    }
+  }
+}

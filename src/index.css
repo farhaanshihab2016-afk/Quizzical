@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: "Bricolage Grotesque", ui-sans-serif, sans-serif;
+    --font-mono: "DM Mono", ui-monospace, monospace;
+    --font-display: "Shrikhand", serif;
+    --color-ink: #1c0d10;
+    --color-oxblood: #5b1a22;
+    --color-wine: #3a1117;
+    --color-gold: #e5a930;
+    --color-butter: #f6d88a;
+    --color-cream: #f5e8d0;
+    --color-teal: #2e8a7c;
+    --color-tomato: #d8483a;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-cream);
+    -webkit-font-smoothing: antialiased;
+    background: repeating-conic-gradient(from 0deg at 50% -10%, #e5a9300d 0deg 6deg, transparent 6deg 12deg),
+                radial-gradient(ellipse 80% 60% at 50% -10%, #6b1f28 0%, var(--color-wine) 45%, var(--color-ink) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  body::after {
+    content: "";
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    position: fixed;
+    inset: 0;
+  }
+}
+
+.font-display {
+  font-family: "Shrikhand", serif;
+}
+
+.bg-ink { background-color: var(--color-ink); }
+.bg-oxblood { background-color: var(--color-oxblood); }
+.bg-wine { background-color: var(--color-wine); }
+.bg-gold { background-color: var(--color-gold); }
+.bg-butter { background-color: var(--color-butter); }
+.bg-cream { background-color: var(--color-cream); }
+.bg-teal { background-color: var(--color-teal); }
+.bg-tomato { background-color: var(--color-tomato); }
+
+.text-ink { color: var(--color-ink); }
+.text-oxblood { color: var(--color-oxblood); }
+.text-wine { color: var(--color-wine); }
+.text-gold { color: var(--color-gold); }
+.text-butter { color: var(--color-butter); }
+.text-cream { color: var(--color-cream); }
+.text-teal { color: var(--color-teal); }
+.text-tomato { color: var(--color-tomato); }
+
+.border-gold { border-color: var(--color-gold); }
+.border-cream { border-color: var(--color-cream); }
+.border-oxblood { border-color: var(--color-oxblood); }
+.border-teal { border-color: var(--color-teal); }
+
+.ring-gold { --tw-ring-color: var(--color-gold); }
+.ring-cream { --tw-ring-color: var(--color-cream); }
+.ring-teal { --tw-ring-color: var(--color-teal); }
+.ring-tomato { --tw-ring-color: var(--color-tomato); }
+
+.text-outline {
+  text-shadow: 0 2px 0 var(--color-oxblood), 0 4px 0 var(--color-ink), 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+.marquee {
+  position: relative;
+}
+
+.marquee::before {
+  content: "";
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle, var(--color-butter) 0 3px, transparent 3.5px) 0 0 / 22px 22px;
+  padding: 7px;
+  animation: 1.2s steps(2, end) infinite bulbs;
+  position: absolute;
+  inset: -10px;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes bulbs {
+  50% { opacity: 0.45; }
+}
+
+@keyframes rise {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shake {
+  20%, 60% { transform: translate(-6px, 0); }
+  40%, 80% { transform: translate(6px, 0); }
+}
+
+.rise {
+  animation: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both rise;
+}
+
+.pop {
+  animation: 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both pop;
+}
+
+.shake {
+  animation: 0.4s both shake;
+}

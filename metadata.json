@@ -1,0 +1,6 @@
+{
+  "name": "Quizzical",
+  "description": "A live trivia show hosted by an AI with the personality you choose: a crooner, a pirate, a pedant, a robot, or one you invent.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

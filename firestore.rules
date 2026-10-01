@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    match /leaderboard/{entryId} {
+      allow read: if true;
+      allow create, update: if isValidId(entryId) && request.resource.data.heroName is string;
+      allow delete: if false;
+    }
+
+    match /profiles/{profileId} {
+      allow read: if true;
+      allow create, update: if isValidId(profileId) && request.resource.data.heroName is string;
+      allow delete: if false;
+    }
+  }
+}
